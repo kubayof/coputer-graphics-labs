@@ -1,5 +1,11 @@
 package com.naofi.show;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class BresenhamShow extends AbstractShow {
     public static class BresenhamShowBuilder extends AbstractBuilder<BresenhamShowBuilder> {
         public BresenhamShowBuilder() {
@@ -22,14 +28,19 @@ public class BresenhamShow extends AbstractShow {
         return new BresenhamShowBuilder();
     }
 
-    private int circleCenterX = 100;
-    private int circleCenterY = 100;
-    private int circleRadius = 50;
+    private int circleCenterX = 20;
+    private int circleCenterY = 20;
+    private int circleRadius = 15;
 
     private BresenhamShow() {}
 
     protected void generateImage() {
-        Algorithms.bresenhamLine(this::point, x1, x2, y1, y2);
-        Algorithms.bresenhamCircle(this::point, circleCenterX, circleCenterY, circleRadius);
+        long start = System.nanoTime();
+        painter.bresenhamLine(x1, y1, x2, y2);
+        long end = System.nanoTime();
+        LocalTime duration = LocalTime.ofNanoOfDay(end - start);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ss.nnnnnnnnn");
+        System.err.println(duration.format(formatter) + " for Bresenham algorithm");
+        painter.bresenhamCircle(circleCenterX, circleCenterY, circleRadius);
     }
 }
