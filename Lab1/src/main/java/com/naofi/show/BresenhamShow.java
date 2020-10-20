@@ -1,9 +1,6 @@
 package com.naofi.show;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 public class BresenhamShow extends AbstractShow {

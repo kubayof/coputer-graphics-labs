@@ -1,6 +1,6 @@
 package com.naofi.text;
 
-import com.naofi.show.Painter;
+import com.naofi.commons.Painter;
 
 import javax.swing.*;
 

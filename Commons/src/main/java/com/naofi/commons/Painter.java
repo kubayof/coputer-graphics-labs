@@ -1,4 +1,4 @@
-package com.naofi.show;
+package com.naofi.commons;
 
 import java.awt.*;
 import java.util.function.BiConsumer;

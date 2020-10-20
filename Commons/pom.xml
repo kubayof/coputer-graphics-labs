@@ -9,13 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Lab1</artifactId>
+    <artifactId>Commons</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.naofi</groupId>
-            <artifactId>Commons</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
+
 </project>

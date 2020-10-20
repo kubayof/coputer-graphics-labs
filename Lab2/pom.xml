@@ -11,5 +11,11 @@
 
     <artifactId>Lab2</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.naofi</groupId>
+            <artifactId>Commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

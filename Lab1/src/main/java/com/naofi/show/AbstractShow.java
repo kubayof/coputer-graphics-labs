@@ -3,6 +3,8 @@ package com.naofi.show;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 
+import com.naofi.commons.Painter;
+
 public abstract class AbstractShow extends JLabel {
     public static class AbstractBuilder<T extends AbstractBuilder<?>> {
         protected final AbstractShow show;

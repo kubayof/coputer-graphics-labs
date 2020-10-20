@@ -1,4 +1,4 @@
-package com.naofi.show;
+package com.naofi.commons;
 
 @FunctionalInterface
 public interface TriConsumer<U, V, Z> {
