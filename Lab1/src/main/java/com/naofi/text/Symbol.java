@@ -13,21 +13,42 @@ public abstract class Symbol {
 
     public static Symbol of(char character, int scale, Painter painter) {
         switch (character) {
-            case 'k':
-            case 'K':
-                return new SymbolK(scale, painter);
-            case 'u':
-            case 'U':
-                return new SymbolU(scale, painter);
-            case 'b':
-            case 'B':
-                return new SymbolB(scale, painter);
+            case 'r':
+            case 'R':
+                return new SymbolR(scale, painter);
+            case 'n':
+            case 'N':
+                return new SymbolN(scale, painter);
+            case 'd':
+            case 'D':
+                return new SymbolD(scale, painter);
             case 'a':
             case 'A':
                 return new SymbolA(scale, painter);
             case 'i':
             case 'I':
                 return new SymbolI(scale, painter);
+            case 'y':
+            case 'Y':
+                return new SymbolY(scale, painter);
+            case 'G':
+            case 'g':
+                return new SymbolG(scale, painter);
+            case 'O':
+            case 'o':
+                return new SymbolO(scale, painter);
+            case 'L':
+            case 'l':
+                return new SymbolL(scale, painter);
+            case 'v':
+            case 'V':
+                return new SymbolV(scale, painter);
+            case 's':
+            case 'S':
+                return new SymbolS(scale, painter);
+            case 'k':
+            case 'K':
+                return new SymbolK(scale, painter);
             default:
                 throw new IllegalArgumentException(
                         String.format("Symbol %c is not supported", character)
@@ -41,35 +62,37 @@ public abstract class Symbol {
 
     public abstract void draw(int xTopLeft, int yTopLeft);
 
-    public static class SymbolK extends Symbol {
-        protected SymbolK(int scale, Painter painter) {
+    public static class SymbolN extends Symbol {
+        protected SymbolN(int scale, Painter painter) {
             super(scale, painter);
         }
 
         @Override
         public void draw(int xTopLeft, int yTopLeft) {
             line(xTopLeft, yTopLeft, xTopLeft, yTopLeft + 8*scale);
-            line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft);
-            line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft + 8*scale);
+            line(xTopLeft, yTopLeft + 8*scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 4 * scale, yTopLeft, xTopLeft + 4*scale, yTopLeft + 8*scale);
         }
     }
 
-    public static class SymbolU extends Symbol {
-        protected SymbolU(int scale, Painter painter) {
+    public static class SymbolD extends Symbol {
+        protected SymbolD(int scale, Painter painter) {
             super(scale, painter);
         }
 
         @Override
         public void draw(int xTopLeft, int yTopLeft) {
-            line(xTopLeft, yTopLeft, xTopLeft, yTopLeft + 7*scale);
-            line(xTopLeft, yTopLeft + 7*scale,xTopLeft + scale, yTopLeft + 8*scale);
-            line(xTopLeft + scale, yTopLeft + 8*scale, xTopLeft + 5*scale, yTopLeft + 8*scale);
-            line(xTopLeft + 4*scale, yTopLeft + 8*scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft, yTopLeft, xTopLeft, yTopLeft + 8*scale);
+            line(xTopLeft, yTopLeft,xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 4*scale, yTopLeft, xTopLeft + 5*scale, yTopLeft + scale);
+            line(xTopLeft + 5*scale, yTopLeft + scale, xTopLeft + 5*scale, yTopLeft + 7*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 7*scale, xTopLeft + 4*scale, yTopLeft +8*scale);
+            line(xTopLeft + 4*scale, yTopLeft + 8*scale, xTopLeft, yTopLeft + 8*scale);
         }
     }
 
-    public static class SymbolB extends Symbol {
-        protected SymbolB(int scale, Painter painter) {
+    public static class SymbolR extends Symbol {
+        protected SymbolR(int scale, Painter painter) {
             super(scale, painter);
         }
 
@@ -81,10 +104,7 @@ public abstract class Symbol {
             line(xTopLeft + 3*scale, yTopLeft + scale, xTopLeft + 3*scale, yTopLeft + 3*scale);
             line(xTopLeft + 3*scale, yTopLeft + 3*scale, xTopLeft + 2*scale, yTopLeft + 4*scale);
             line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 3*scale, yTopLeft + 4*scale);
-            line(xTopLeft + 3*scale, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft + 5*scale);
-            line(xTopLeft + 4*scale, yTopLeft + 5*scale,xTopLeft + 4*scale, yTopLeft + 7*scale);
-            line(xTopLeft + 4*scale, yTopLeft + 7*scale, xTopLeft + 3*scale, yTopLeft + 8*scale);
-            line(xTopLeft + 3*scale, yTopLeft + 8*scale,  xTopLeft, yTopLeft + 8*scale);
+            line(xTopLeft + 3*scale, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft + 8*scale);
         }
     }
 
@@ -109,6 +129,102 @@ public abstract class Symbol {
         @Override
         public void draw(int xTopLeft, int yTopLeft) {
             line(xTopLeft + 2*scale, yTopLeft, xTopLeft + 2*scale, yTopLeft + 8*scale);
+        }
+    }
+
+    public static class SymbolY extends Symbol {
+        protected SymbolY(int scale, Painter painter) {super(scale, painter); }
+
+        @Override
+        public void draw(int xTopLeft, int yTopLeft) {
+            line(xTopLeft, yTopLeft, xTopLeft + 2*scale, yTopLeft + 2*scale);
+            line(xTopLeft + 2*scale, yTopLeft + 2*scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 2*scale, yTopLeft + 2*scale, xTopLeft + 2*scale, yTopLeft + 8*scale);
+        }
+    }
+    public  static class SymbolG extends Symbol {
+        protected SymbolG(int scale, Painter painter) {
+            super(scale, painter);
+        }
+
+        @Override
+        public void draw(int xTopLeft, int yTopLeft) {
+            line(xTopLeft + 5*scale, yTopLeft + 1*scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 4*scale, yTopLeft, xTopLeft + 2*scale, yTopLeft);
+            line(xTopLeft + 2*scale, yTopLeft, xTopLeft, yTopLeft + 2*scale);
+            line(xTopLeft, yTopLeft + 2*scale, xTopLeft, yTopLeft + 6*scale);
+            line(xTopLeft, yTopLeft + 6*scale, xTopLeft + 2*scale, yTopLeft + 8*scale);
+            line(xTopLeft + 2*scale, yTopLeft + 8*scale, xTopLeft + 5*scale, yTopLeft + 8*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 8*scale, xTopLeft + 5*scale, yTopLeft + 5*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 5*scale, xTopLeft + 2*scale, yTopLeft + 5*scale);
+
+        }
+    }
+    public static class SymbolO extends Symbol {
+        protected SymbolO(int scale, Painter painter) {
+            super(scale, painter);
+        }
+
+        @Override
+        public void draw(int xTopLeft, int  yTopLeft){
+            line(xTopLeft, yTopLeft + scale, xTopLeft + scale, yTopLeft);
+            line(xTopLeft + scale, yTopLeft, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 4*scale, yTopLeft, xTopLeft + 5*scale, yTopLeft + scale);
+            line(xTopLeft +5*scale, yTopLeft + scale, xTopLeft + 5*scale, yTopLeft + 7*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 7*scale, xTopLeft + 4*scale, yTopLeft + 8*scale);
+            line(xTopLeft + 4*scale, yTopLeft + 8*scale, xTopLeft + scale, yTopLeft + 8*scale);
+            line(xTopLeft + scale, yTopLeft + 8*scale, xTopLeft, yTopLeft + 7*scale);
+            line(xTopLeft, yTopLeft + 7*scale, xTopLeft, yTopLeft + scale);
+        }
+    }
+    public static class SymbolL extends  Symbol {
+        protected  SymbolL(int scale, Painter painter) {
+            super(scale, painter);}
+
+        @Override
+        public void draw(int xTopLeft, int yTopLeft){
+            line(xTopLeft, yTopLeft, xTopLeft, yTopLeft + 8*scale);
+            line(xTopLeft, yTopLeft + 8*scale, xTopLeft + 5*scale, yTopLeft + 8*scale);
+        }
+    }
+    public  static class SymbolV extends Symbol {
+        protected SymbolV(int scale, Painter painter) {
+            super(scale, painter);
+        }
+
+        @Override
+        public void draw(int xTopLeft, int yTopLeft) {
+            line(xTopLeft, yTopLeft, xTopLeft + 2 * scale, yTopLeft + 8 * scale);
+            line(xTopLeft + 2 * scale, yTopLeft + 8 * scale, xTopLeft + 4 * scale, yTopLeft);
+        }
+    }
+    public static class SymbolK extends Symbol {
+        protected SymbolK(int scale, Painter painter) {
+            super(scale, painter);
+        }
+
+        @Override
+        public void draw(int xTopLeft, int yTopLeft) {
+            line(xTopLeft, yTopLeft, xTopLeft, yTopLeft + 8*scale);
+            line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft + 8*scale);
+        }
+    }
+    public static class SymbolS extends Symbol {
+        protected SymbolS(int scale, Painter painter) { super(scale, painter);}
+
+        @Override
+        public  void draw(int xTopLeft, int yTopLeft) {
+            line(xTopLeft + 5*scale, yTopLeft + scale, xTopLeft + 4*scale, yTopLeft);
+            line(xTopLeft + 4*scale, yTopLeft, xTopLeft + 2*scale, yTopLeft);
+            line(xTopLeft + 2*scale, yTopLeft, xTopLeft, yTopLeft + 2*scale);
+            line(xTopLeft, yTopLeft + 2*scale, xTopLeft, yTopLeft + 4*scale);
+            line(xTopLeft, yTopLeft + 4*scale, xTopLeft + 4*scale, yTopLeft + 4*scale);
+            line(xTopLeft + 4*scale, yTopLeft + 4*scale, xTopLeft + 5*scale, yTopLeft + 5*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 5*scale, xTopLeft + 5*scale, yTopLeft + 7*scale);
+            line(xTopLeft + 5*scale, yTopLeft + 7*scale, xTopLeft + 4*scale, yTopLeft + 8*scale);
+            line(xTopLeft + 4*scale, yTopLeft + 8*scale, xTopLeft + scale, yTopLeft + 8*scale);
+            line(xTopLeft + scale, yTopLeft + 8*scale, xTopLeft, yTopLeft + 7*scale);
         }
     }
 }
